@@ -1,0 +1,7 @@
+dump
+data
+downloads
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+__pycache__
+*/__pycache__
