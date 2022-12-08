@@ -12,7 +12,7 @@ n_shift=256
 
 train_set="train_clean_100"
 valid_set="dev"
-test_sets="test_clean test_other dev_clean dev_other"
+test_sets="test_clean dev_clean"
 
 train_config=conf/tuning/train_transformer.yaml
 inference_config=conf/decode.yaml
@@ -21,6 +21,7 @@ inference_config=conf/decode.yaml
 g2p=g2p_en_no_space # Include no word separator
 
 ./tts.sh \
+    --ngpu 2 \
     --lang en \
     --feats_type raw \
     --fs "${fs}" \
@@ -35,4 +36,4 @@ g2p=g2p_en_no_space # Include no word separator
     --valid_set "${valid_set}" \
     --test_sets "${test_sets}" \
     --srctexts "data/${train_set}/text" \
-    --audio_format "flac.ark" "$@"
+    --audio_format "flac" "$@"
